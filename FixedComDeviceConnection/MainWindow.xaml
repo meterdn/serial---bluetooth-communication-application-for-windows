@@ -1,0 +1,74 @@
+﻿<Window x:Class="FixedComDeviceConnection.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FixedComDeviceConnection"
+        mc:Ignorable="d"
+        Title="Serial Port Communication Application" MinHeight="400" MinWidth="800" Height="400" Width=" 800" >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        
+        <Grid Grid.Row="1" Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="baud rate:" Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+            <ComboBox ItemsSource="{Binding BaudRates}" SelectedValue="{Binding SelectedBaudRate}" Grid.ColumnSpan="2" SelectedIndex="4" Grid.Column="1" Grid.Row="1" Height="30" Width="100" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+        </Grid>
+        <!-- Selects 9600 baud rate by default -->
+
+
+
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            
+            <TextBlock Text="available coms:" Grid.Column="0" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left"  />
+            <ComboBox DropDownOpened="ComboBox_DropDownOpened" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0" Width="100" Height="30" HorizontalAlignment="Left" ItemsSource="{Binding AvailableCOMPorts}" SelectedIndex="0" SelectedValue="{Binding SelectedCOMPort}" ></ComboBox>
+
+        </Grid>
+        
+
+        <Button Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" VerticalAlignment="Center"  Command="" Height="40" Width="110" Background="Orange" Click="GoToConnectingView_Click">
+            <TextBlock Text="Connect" TextWrapping="Wrap" TextAlignment="Center"/>
+        </Button>
+
+        
+
+    </Grid>
+</Window>
